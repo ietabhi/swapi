@@ -1,0 +1,19 @@
+<section id="home-view" class="container-fluid" >
+    <div class="container" id="searchable-container">
+        <h1>Home</h1>
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-4">
+                    <div class="form-group has-feedback">
+                        <label for="search" class="sr-only">Search</label>
+                        <input type="text" class="form-control" name="search" id="search" 
+                                placeholder="search" ng-model="search">
+                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-padding"  ng-repeat="list in planetList">
+                <div class="col-xs-4">{{list.name}}</div>
+                <div class="col-xs-4">{{list.population}}</div>
+            </div>  
+    </div>
+</section>

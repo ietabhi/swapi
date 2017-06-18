@@ -42,9 +42,7 @@
             $scope.login = function () {
                 $scope.dataLoading = true;
                 LoginService.getPeopleList($scope.username).then(function(data){
-                    console.log(data.results);
-                    angular.forEach(data.results, function(value, key) {
-                        console.log('key', key, 'value', value);
+                    angular.forEach(data.results, function(value) {
                         if (value.name === $scope.username && value.birth_year === $scope.password) {
                             $scope.dataLoading = false;
                             LoginService.SetCredentials($scope.username, $scope.password);
@@ -52,7 +50,7 @@
                         }
                     });
                 });        
-            }
+            };
         }
     }
 })();

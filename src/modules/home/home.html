@@ -11,9 +11,15 @@
                     </div>
                 </div>
             </div>
-            <div class="row row-padding"  ng-repeat="list in planetList">
-                <div class="col-xs-4">{{list.name}}</div>
-                <div class="col-xs-4">{{list.population}}</div>
+            <div class="row row-padding" ng-if="planetList">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-strong">Name</div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-strong">Population</div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-strong">Created</div>
+            </div> 
+            <div class="row row-padding"  ng-repeat="list in planetList" ng-class="{'max-population-row':list.isMaxPopulation}">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">{{list.name}}</div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">{{list.population}}</div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">{{list.created | date}}</div>
             </div>  
     </div>
 </section>

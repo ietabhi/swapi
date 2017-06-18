@@ -36,7 +36,7 @@
 
     core.run(runFunction);
 
-    runFunction.$inject = ['$rootScope', '$location', '$cookieStore', '$http']
+    runFunction.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
 
     function runFunction($rootScope, $location, $cookieStore, $http) {
         // keep user logged in after page refresh
@@ -45,8 +45,7 @@
             $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
         }
  
-        $rootScope.$on('$locationChangeStart', function (event, next, current) {
-            debugger;
+        $rootScope.$on('$locationChangeStart', function () {
             // redirect to login page if not logged in
             if ($location.path() !== '/login' && !$rootScope.globals.currentUser) {
                 $location.path('/login');

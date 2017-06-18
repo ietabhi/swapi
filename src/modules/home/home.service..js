@@ -19,7 +19,7 @@
         
         function getSearchData(search){
 
-            $http.defaults.headers.common["Authorization"] = '';
+            $http.defaults.headers.common.Authorization = '';
              
             return $http.get(serviceApi+'/planets/?search=' + search)
                 .then(onSuccess, onError);

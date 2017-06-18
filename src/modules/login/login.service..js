@@ -19,11 +19,9 @@
 
         return service;
         
-        function getPeopleList(search){  
-        // Set the Content-Type 
-        $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
-        // Delete the Requested With Header
-        delete $http.defaults.headers.common['X-Requested-With'];
+        function getPeopleList(search){
+        
+        $http.defaults.headers.common.Authorization = '';
             return $http.get(serviceApi + '/people/?search=' + search)
                 .then(onSuccess, onError);
 
@@ -51,13 +49,13 @@
  
             $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata; // jshint ignore:line
             $cookieStore.put('globals', $rootScope.globals);
-        };
+        }
  
         function ClearCredentials() {
             $rootScope.globals = {};
             $cookieStore.remove('globals');
             $http.defaults.headers.common.Authorization = 'Basic ';
-        };
+        }
 
     }
 })();

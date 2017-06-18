@@ -27,10 +27,10 @@
 
 
     // ----- ControllerFunction -----
-    HomeController.$inject = ['$scope', 'logger', 'HomeService'];
+    HomeController.$inject = ['$scope', 'logger', 'HomeService', '_'];
 
     /* @ngInject */
-    function HomeController($scope, logger, HomeService) {
+    function HomeController($scope, logger, HomeService, _) {
 
         activate();
         $scope.search = '';
@@ -41,8 +41,9 @@
         $scope.$watch('search', function(){
             if($scope.search){
                 HomeService.getSearchData($scope.search).then(function(data){
-                    console.log(data);
                     $scope.planetList = data.results;
+                    var max_value = _.max(data.results, _.property('population'));
+                    max_value.isMaxPopulation = true;
                 });
             }            
         });

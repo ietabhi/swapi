@@ -9,3 +9,7 @@ npm install
 
 # run project
 gulp serve-dev
+
+
+# JS hint test
+gulp vet
